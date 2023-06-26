@@ -8,11 +8,12 @@
 # Copyright (C) 2021. All Rights Reserved.
 
 import json
+from glob import glob
 
 import findfile
 import pandas as pd
 
-from .instruction import (
+from instruction import (
     ATEInstruction,
     CategoryInstruction,
     OpinionInstruction,
@@ -171,8 +172,8 @@ class InstructDatasetLoader:
 
 def read_json(data_path, data_type="train"):
     data = []
-    dirs  = findfile.find_dir(data_path)
-
+    dirs  = glob(data_path)
+    print("dirs: ", dirs)
     for dir in dirs:
         files = findfile.find_files(dir, [data_type, ".jsonl"], exclude_key=[".txt"])
         for f in files:

@@ -7,6 +7,6 @@
 # google scholar: https://scholar.google.com/citations?user=NPq5a_0AAAAJ&hl=en
 # Copyright (C) 2019-2023. All Rights Reserved.
 
-from .model import ABSAGenerator
-from .dataset_list import ACOSDatasetList
-from .data_utils import InstructDatasetLoader
+from ABSA.model import ABSAGenerator
+from ABSA.dataset_list import ACOSDatasetList
+from ABSA.data_utils import InstructDatasetLoader

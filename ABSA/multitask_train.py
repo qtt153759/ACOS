@@ -12,8 +12,8 @@ import warnings
 warnings.filterwarnings("ignore")
 import pandas as pd
 
-from .model import T5Generator, T5Classifier
-from .data_utils import InstructDatasetLoader, read_json
+from model import T5Generator, T5Classifier
+from data_utils import InstructDatasetLoader, read_json
 
 task_name = "multitask"
 experiment_name = "instruction"
@@ -33,8 +33,8 @@ print("Model output path: ", model_out_path)
 # Load the data
 # id_train_file_path = './integrated_datasets'
 # id_test_file_path = './integrated_datasets'
-id_train_file_path = "./integrated_datasets/acos_datasets/"
-id_test_file_path = "./integrated_datasets/acos_datasets"
+id_train_file_path = "./dataset/acos_datasets/"
+id_test_file_path = "./dataset/acos_datasets"
 # id_train_file_path = './integrated_datasets/acos_datasets/501.Laptop14'
 # id_test_file_path = './integrated_datasets/acos_datasets/501.Laptop14'
 # id_train_file_path = './integrated_datasets/acos_datasets/504.Restaurant16'
