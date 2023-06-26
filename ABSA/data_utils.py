@@ -13,7 +13,7 @@ from glob import glob
 import findfile
 import pandas as pd
 
-from instruction import (
+from ABSA.instruction import (
     ATEInstruction,
     CategoryInstruction,
     OpinionInstruction,
