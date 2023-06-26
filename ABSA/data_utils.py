@@ -171,11 +171,13 @@ class InstructDatasetLoader:
 
 def read_json(data_path, data_type="train"):
     data = []
+    dirs  = findfile.find_dir(data_path)
 
-    files = findfile.find_files(data_path, [data_type, ".jsonl"], exclude_key=[".txt"])
-    for f in files:
-        print(f)
-        with open(f, "r", encoding="utf8") as fin:
-            for line in fin:
-                data.append(json.loads(line))
+    for dir in dirs:
+        files = findfile.find_files(dir, [data_type, ".jsonl"], exclude_key=[".txt"])
+        for f in files:
+            print(f)
+            with open(f, "r", encoding="utf8") as fin:
+                for line in fin:
+                    data.append(json.loads(line))
     return data
