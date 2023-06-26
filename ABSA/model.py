@@ -15,7 +15,7 @@ from transformers import (
     Seq2SeqTrainer,
 )
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-from instruction import (
+from ABSA.instruction import (
     ATEInstruction,
     APCInstruction,
     OpinionInstruction,
