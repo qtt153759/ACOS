@@ -246,8 +246,6 @@ class T5Generator:
         for i in range(len(y_true)):
             y_true[i] = y_true[i].replace(" ", "")
             y_pred[i] = y_pred[i].replace(" ", "")
-            print(y_true[i])
-            print(y_pred[i])
         return {
             "accuracy": accuracy_score(y_true, y_pred),
             "precision": precision_score(y_true, y_pred, average="macro"),
