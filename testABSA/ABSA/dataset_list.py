@@ -1,25 +1,7 @@
-﻿# -*- coding: utf-8 -*-
-# file: dataset_list.py
-# time: 02/11/2022 19:35
-# author: YANG, HENG <hy345@exeter.ac.uk> (杨恒)
-# github: https://github.com/yangheng95
-# GScholar: https://scholar.google.com/citations?user=NPq5a_0AAAAJ&hl=en
-# ResearchGate: https://www.researchgate.net/profile/Heng-Yang-17/research
-# Copyright (C) 2022. All Rights Reserved.
-
-import os
+﻿import os
 
 class DatasetItem(list):
     def __init__(self, dataset_name, dataset_items=None):
-        """
-        Initializes a DatasetItem object with the given dataset_name and dataset_items.
-        DatasetItem is used to construct a dataset for PyABSA. Each dataset has a name,
-        you can merge multiple datasets into one dataset by "dataset_items". If dataset_name is a list,
-        the dataset_name will be set to "Unnamed_Dataset" and the dataset_items will be set to dataset_name.
-
-        :param dataset_name: The name of the dataset. Can be a string or a list of strings.
-        :param dataset_items: The list of dataset names or file paths. Default is None.
-        """
         self.name = None
         # If the dataset_name is a DatasetItem object, copy its attributes to this object
         if isinstance(dataset_name, DatasetItem):
@@ -66,11 +48,6 @@ class DatasetItem(list):
     
     
 class ACOSDatasetList(list):
-    """
-    The following datasets are for aspect polarity classification task.
-    The datasets are collected from different sources, you can use the id to locate the dataset.
-    """
-
     Laptop14 = DatasetItem("Laptop14", "501.Laptop14")
 
     Restaurant14 = DatasetItem("Restaurant14", "502.Restaurant14")

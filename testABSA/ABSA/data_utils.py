@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-# file: data_utils.py
-# time: 15/03/2023
-# author: HENG YANG <hy345@exeter.ac.uk>
-# github: https://github.com/yangheng95
-# huggingface: https://huggingface.co/yangheng
-# google scholar: https://scholar.google.com/citations?user=NPq5a_0AAAAJ&hl=en
-# Copyright (C) 2021. All Rights Reserved.
-
 import json
 from glob import glob
 
@@ -39,9 +30,6 @@ class InstructDatasetLoader:
         self.test_df_ood = test_df_ood
 
     def prepare_instruction_dataloader(self, df):
-        """
-        Prepare the data in the input format required.
-        """
         ate_instructor = ATEInstruction()
         apc_instructor = APCInstruction()
         op_instructor = OpinionInstruction()
@@ -115,9 +103,6 @@ class InstructDatasetLoader:
     def create_datasets(self, tokenize_function):
         from datasets import DatasetDict, Dataset
 
-        """
-        Create the training and test dataset as huggingface datasets format.
-        """
         # Define train and test sets
         if self.test_df_id is None:
             indomain_dataset = DatasetDict(

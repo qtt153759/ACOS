@@ -33,18 +33,14 @@ class T5Generator:
         self.model.to(self.device)
 
     def tokenize_function_inputs(self, sample):
-        """
-        Udf to tokenize the input dataset.
-        """
+
         model_inputs = self.tokenizer(sample["text"], max_length=1024, truncation=True)
         labels = self.tokenizer(sample["labels"], max_length=128, truncation=True)
         model_inputs["labels"] = labels["input_ids"]
         return model_inputs
 
     def train(self, tokenized_datasets, **kwargs):
-        """
-        Train the generative model.
-        """
+
         # Set training arguments
         args = Seq2SeqTrainingArguments(**kwargs)
 
@@ -71,9 +67,7 @@ class T5Generator:
         return trainer
 
     def predict(self, text, **kwargs):
-        """
-        Predict the output from the model.
-        """
+
         ate_instructor = ATEInstruction()
         apc_instructor = APCInstruction()
         op_instructor = OpinionInstruction()
@@ -155,9 +149,7 @@ class T5Generator:
         batch_size=4,
         sample_set="train",
     ):
-        """
-        Get the predictions from the trained model.
-        """
+
         if not predictor:
             print("Prediction from checkpoint")
 
@@ -267,9 +259,7 @@ class T5Classifier:
         self.data_collator = DataCollatorForSeq2Seq(self.tokenizer)
 
     def tokenize_function_inputs(self, sample):
-        """
-        Udf to tokenize the input dataset.
-        """
+
         sample["input_ids"] = self.tokenizer(
             sample["text"], max_length=1024, truncation=True
         ).input_ids
@@ -279,10 +269,6 @@ class T5Classifier:
         return sample
 
     def train(self, tokenized_datasets, **kwargs):
-        """
-        Train the generative model.
-        """
-
         # Set training arguments
         args = Seq2SeqTrainingArguments(**kwargs)
 
@@ -311,9 +297,7 @@ class T5Classifier:
     def get_labels(
         self, tokenized_dataset, predictor=None, batch_size=4, sample_set="train"
     ):
-        """
-        Get the predictions from the trained model.
-        """
+
         if not predictor:
             print("Prediction from checkpoint")
 
